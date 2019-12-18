@@ -10,6 +10,10 @@ app.use(express.json())
 app.use(require('cors')())
 // 静态资源托管
 app.use('/uploads',express.static(__dirname + '/uploads'))
+// 后台静态文件托管
+app.use('/admin',express.static(__dirname + '/admin'))
+// 前台静态文件托管
+app.use('/',express.static(__dirname + '/web'))
 
 // 
 app.set('secret','i2u34y12oi3u4y8')
