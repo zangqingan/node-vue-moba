@@ -17,6 +17,8 @@ app.set('secret','i2u34y12oi3u4y8')
 require('./router/admin')(app)
 // 引入数据库模块
 require('./plugins/db')(app)
+// 引入web
+require('./router/web')(app)
 
 
 

@@ -10,6 +10,8 @@ const schema = new mongoose.Schema({
 
 
       
+},{
+    timestamps:true
 })
 
 // 创建一个模型并导出
