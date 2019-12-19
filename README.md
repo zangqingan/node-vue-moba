@@ -28,3 +28,7 @@ nrm use npm
 安装n,用来升级node的版本
 npm i -g n
  n latest 使用最新版本
+
+5. 迁移本地数据库数据到服务器上
+ mongodump -d node-vue-moba(要导出的数据库名)
+ mongorestore 恢复数据库

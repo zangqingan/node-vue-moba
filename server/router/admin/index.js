@@ -75,7 +75,11 @@ const resourceMiddleware = require('../../middleware/resource')
     // 图片上传路由,接收单个文件上传，同时字段名为file
     app.use('/admin/api/upload',authMiddleware(),upload.single('file'),async (req,res) => {
         const file = req.file//使用了中間件把file加入到req中
-        file.url = `http://localhost:3000/uploads/${file.filename}`
+        // 本地地址
+        // file.url = `http://localhost:3000/uploads/${file.filename}`
+        // 改成线上地址
+        file.url = `http://116.62.242.41/uploads/${file.filename}`
+        
         res.send(file)
     })
 
