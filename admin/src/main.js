@@ -11,7 +11,7 @@ import './style.css'
 // 赋值给vue原型属性 $http,这样就可以在任何页面使用axios了
 Vue.prototype.$http = http
 
-// 让每一个组件斗能使用，全局的意思。
+// 让每一个组件都能使用，全局的意思。
 Vue.mixin({
   computed: {
     uploadUrl(){

@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     name:{
         type:String
     },
+    //定义一个当前分类的父级分类字段，指定ref即指定关联的模型
     parent:{
         type:mongoose.SchemaTypes.ObjectId,ref:'Category'
     }

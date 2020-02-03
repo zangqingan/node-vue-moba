@@ -11,11 +11,6 @@ module.exports = app => {
     const router = express.Router({
         mergeParams:true//合并url参数
     })
-
-    
-
-    
-
 // 通用crud接口
     // 新建资源
     router.post('/',async (req,res) => {

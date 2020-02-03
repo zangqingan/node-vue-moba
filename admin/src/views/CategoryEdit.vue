@@ -2,6 +2,7 @@
     <div class="about">
         <h1>{{id ? '编辑':'新建'}}分类</h1>
         <el-form label-width="120px" @submit.native.prevent="save">
+            <!-- 创建一个分类item -->
             <el-form-item label="上级分类" >
                 <el-select v-model="model.parent">
                     <!-- 保存的是—_id值 -->
@@ -32,7 +33,6 @@ export default {
     },
     methods: {
         async save(){
-
             let res
             if(this.id){
                 // 如果有编辑更新
@@ -51,6 +51,7 @@ export default {
             })
 
         },
+        // 获取分类数据
         async fetch(){
             const res = await this.$http.get(`rest/categories/${this.id}`)
             this.model = res.data

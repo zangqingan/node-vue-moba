@@ -1,16 +1,16 @@
-import axios from 'axios'
-
+//axios网络请求模块，将axios实例绑定到vue原型属性$http上
 import Vue from 'vue'
-
+import axios from 'axios'
 import router from './router'
 // 创建一个 axios实例
 const http = axios.create({
-    // 实际生成用
+    // 实际生产用
     baseURL:process.env.VUE_APP_API_URL || '/admin/api',
+    // 本地开发用
     // baseURL:'http://localhost:3000/admin/api'
 })
 
-// req拦截器
+// 请求(req)拦截器
 http.interceptors.request.use( config => {
     // 如果本地存在token，写入请求头中
     if(localStorage.token){
@@ -23,7 +23,7 @@ http.interceptors.request.use( config => {
     return Promise.reject(err)
 })
 
-//res 拦截器
+//响应(res)拦截器
 http.interceptors.response.use( res => {
     return res
 
