@@ -68,7 +68,7 @@ module.exports = app => {
         // 本地地址
         // file.url = `http://localhost:3000/uploads/${file.filename}`
         // 改成线上地址
-        file.url = `http://116.62.242.41/uploads/${file.filename}`
+        file.url = `http://zangqingan.top/uploads/${file.filename}`
         
         res.send(file)
     })
