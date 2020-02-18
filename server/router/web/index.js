@@ -1,4 +1,4 @@
-// 移动端路由
+//web移动端路由
 module.exports = app => {
     const router = require('express').Router()
     const mongoose = require('mongoose')
@@ -105,7 +105,7 @@ module.exports = app => {
         res.send(await Hero.find())
     })
 
-      // 英雄列表接口
+      // 前端调用英雄列表接口
   router.get('/heroes/list', async (req, res) => {
     const parent = await Category.findOne({
       name: '英雄分类'

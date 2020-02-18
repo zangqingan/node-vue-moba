@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 // 跨域模块
 app.use(require('cors')())
-// 静态资源托管
+// 上传图片静态资源托管
 app.use('/uploads',express.static(__dirname + '/uploads'))
 // 后台静态文件托管
 app.use('/admin',express.static(__dirname + '/admin'))

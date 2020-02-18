@@ -23,7 +23,6 @@
         </el-form>
     </div>
 </template>
-
 <script>
 export default {
     props:{
@@ -31,8 +30,7 @@ export default {
     },
     data(){
         return{
-            model:{},
-            
+            model:{}, 
         }
     },
     methods: {
@@ -43,9 +41,7 @@ export default {
             // console.log(res)
 
         },
-
         async save(){
-
             let res
             if(this.id){
                 // 如果有编辑更新
@@ -62,7 +58,6 @@ export default {
                 type:'success',
                 message:'保存成功'
             })
-
         },
         async fetch(){
             const res = await this.$http.get(`rest/items/${this.id}`)
@@ -70,12 +65,10 @@ export default {
         },
     },
     created() {
-
         this.id && this.fetch()
     },
 }
 </script>
-
 <style>
   
 </style>
