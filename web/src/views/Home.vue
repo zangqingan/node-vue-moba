@@ -14,16 +14,18 @@
     <div class="swiper-pagination pagination-home text-right px-3 pb-1"  slot="pagination"></div>
   </swiper>
   <!-- end of swiper -->
-  <div class="nav-icons bg-white mt-3  text-center text--dark-1">
-    <div class="d-flex flex-wrap  ">
-      <div class="nav-items mb-3 pt-3" v-for="n in 10" :key="n">
-        <i class="sprite sprite-news"></i>
-        <div class="py-2">爆料站</div>
+  <div class="nav-icons bg-white mt-3  text-center text--dark-1" >
+     <transition name="fade">
+      <div class="d-flex flex-wrap " v-if="isShow">
+        <div class="nav-items mb-3 pt-3" v-for="n in 10" :key="n">
+          <i class="sprite sprite-news"></i>
+          <div class="py-2">爆料站</div>
+        </div>
       </div>
-    </div>
-    <div class="bg-light py-2 fs-sm ">
+     </transition>
+    <div class="bg-light py-2 fs-sm " @click="show">
       <i class="sprite sprite-arrow mr-1"></i>
-      <span>收起</span>
+      <span>{{isShow == true?'收起':'展开'}}</span>
     </div>
   </div>
   <!-- end of nav icons -->
@@ -111,10 +113,16 @@ export default {
           pagination: {
             el: '.pagination-home'
           },
+          autoplay: {
+            delay: 2000,//1秒切换一次
+          },
+          loop : true,
+          effect : 'cube',
           
       },
       newsCats:[],//实际应该是服务器返回数据
       heroCats:[],//英雄子分类
+      isShow:true
     }
   },
   created() {
@@ -131,6 +139,10 @@ export default {
     async fetchHeroCats(){
       const res = await this.$http.get('heroes/list')
       this.heroCats = res.data
+    },
+    show(){
+      // window.console.log("hello")
+      this.isShow = !this.isShow
     }
   },
 }
@@ -160,5 +172,11 @@ export default {
       border-left: none;
     }
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

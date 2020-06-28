@@ -95,7 +95,7 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-
+// 前置导航守卫
 router.beforeEach((to,from,next) => {
   // 不是公开访问的页面且本地没有token，先登录
   if(!to.meta.isPublic && !localStorage.token){
@@ -103,4 +103,5 @@ router.beforeEach((to,from,next) => {
   }
   next()
 })
+
 export default router

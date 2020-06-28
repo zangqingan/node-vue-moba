@@ -57,6 +57,7 @@ module.exports = app => {
     const resourceMiddleware = require('../../middleware/resource')
     // 挂载路由以及注册中间件
     app.use('/admin/api/rest/:resource',authMiddleware(),resourceMiddleware(),router)
+    
 // 其它路由 
     // 图片上传
     const multer = require('multer')

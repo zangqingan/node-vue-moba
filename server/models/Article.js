@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-
-// 定义一个约定schema
 const schema = new mongoose.Schema({
     title:{
         type:String

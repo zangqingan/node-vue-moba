@@ -16,8 +16,6 @@ http.interceptors.request.use( config => {
     if(localStorage.token){
         config.headers.Authorization = 'Bearer ' + localStorage.token 
     }
-    
-
     return config
 },err => {    
     return Promise.reject(err)
@@ -37,9 +35,6 @@ http.interceptors.response.use( res => {
         if(err.response.status === 401){
             router.push('/login')
         }
-
-
-
     }
     return Promise.reject(err)
 })
